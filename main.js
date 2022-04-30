@@ -8,7 +8,7 @@ const crearLlave = (nombre,modelo,precio)=> {
     precio = `<p>Precio: $${precio}</p>`;
     return [image,nombre,modelo,precio];
 }
-const changeHidden =(number)=>{
+const changeHidden = (number)=>{
     document.querySelector(".key-data").value = number;
 }
 
