@@ -2,9 +2,10 @@
 // Acordarse de crear el objeto con la clase que le corresponde
 cadenaDatos = ["coscu army","ashe","soy vegano","coscu es god","amigdala"];
 let inp = document.getElementById("input-text");
-let newh5 = document.createElement("h5")
-let newh1 = document.createElement("h1")
 let divShow = document.getElementById("show-results")
+const fragmento1 = document.createDocumentFragment();
+const fragmento2 = document.createDocumentFragment();
+const newH2 = document.createElement("H2");
 
 let verificacion = false;
 const agregarDatos = (cantInv)=>{
@@ -16,20 +17,22 @@ const agregarDatos = (cantInv)=>{
 }
 
 const Buscar = ()=>{
-    newh5.innerHTML = "hoals"
-    divShow.append(newh5);
+    fragmento2.appendChild(newH2);
+    divShow.appendChild(newH2);
+    newH2.innerHTML = "Resultados de su busqueda";
     for (coincide in cadenaDatos){
         resultado = cadenaDatos[coincide].includes(cadenaBuscar);
         if(resultado == true){
-            newh5.innerHTML = cadenaDatos[coincide];
-            console.log(cadenaDatos[coincide]);
-            newh5.className = "results";
-            divShow.append(newh5);
+            const newH5 = document.createElement("H5")
+            newH5.innerHTML = cadenaDatos[coincide];
+            fragmento1.appendChild(newH5);
+            divShow.appendChild(fragmento1);
+            console.log(newH5);
             verificacion = true;
         }
     }
     if(verificacion == false){
-        newh5.innerHTML= "Lo que busco no existe";
+        newH5.innerHTML= "Lo que busco no existe";
     }
 }
 
@@ -37,7 +40,7 @@ const Navegar = ()=>{
     cadenaBuscar = inp.value;
     if(cadenaBuscar == "contraseñaAdmin"){
         //document.body.append(newh1)
-        newh1.innerHTML = "Cuantos cosas quiere agregar?";
+        newh1.innerText = "Cuantos cosas quiere agregar?";
         agregarDatos(cantInv);
         cadenaBuscar = prompt("Ingrese lo que esta buscando");
         Buscar();
@@ -45,3 +48,4 @@ const Navegar = ()=>{
         Buscar();
     }
 }  
+

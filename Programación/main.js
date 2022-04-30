@@ -1,18 +1,8 @@
 // Para copiar `` b n @
-confirm = flase;
-const validarCliente = (time)=>{
-    Edad = prompt("Ingrese su edad");
-    if (Edad > 18){
-        if (time >= 2 && time<7 && confirm == false){
-            alert("podes pasar gratis");
-            document.write(time);
-            return confirm = true;
-        }else alert("Tenes que pagar la entrada");                                                                                                                                                                                                                                       
-    } else  alert("Solo pueden pasar mayores de 18");
+const funcionPrueba = ()=>{
+    let ashe=document.write("tanashe");
+    if(ashe=="tanashe"){
+        document.write("ta muy nashe")
+    }
+    return ashe;
 }
-
-validarCliente(5);
-validarCliente(3);
-validarCliente(1);
-validarCliente(12);
-validarCliente(8);
