@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(233, 170, 52);
+    font-family: 'Courier New', Courier, monospace;
+}
+h1{
+    margin:auto;
+    width: 50vw;
+    color: grey;
+    padding: auto;
+    transition:.4s;
+}
+h1:hover{
+    transition: .4s;
+    color:rgb(233, 170, 52);
+}
+.form{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 40vh;
+    background-color: black;
+    margin:auto;
+    width: 50vw;
+    padding:15px;
+}
+.form input{
+    width: 30vw;
+    height: 100px;
+    margin: 10px;
+    background: transparent;
+    border:none;
+    border-bottom: 1px solid white;
+    color: white;
+    color: grey;
+}
+.form input:focus{
+    transition:.5s;
+    color:black;
+    outline: none;
+    background:rgb(62, 62, 62);
+}
+#submit{
+    width: 10vw;
+    background:white;
+    color: black;
+    transition: .4s ease-in;
+}
+#submit:hover{
+    transition:.4s ease-in;
+    background:rgb(233, 170, 52);
+}
+.error{
+    color:red;
+}
+.enviada{
+    color:green;
+}
