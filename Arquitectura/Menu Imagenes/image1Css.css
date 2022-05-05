@@ -1,5 +1,6 @@
 * {
     box-sizing:border-box;
+    object-fit: cover;
 }
 .slideshow-container{
     position:relative;
@@ -7,7 +8,7 @@
 }
 .mySlides{
     overflow: hidden;
-    object-fit: cover;
+    object-fit: scale-down;
     margin-left:25%;
     display:none;
     border: 2px solid red;
@@ -16,7 +17,7 @@
 }
 .prev, .next{
     cursor:pointer;
-    position:absolute;
+    position:absolute;  
     top:50%;
     width:auto;
     margin-top:-22px;
