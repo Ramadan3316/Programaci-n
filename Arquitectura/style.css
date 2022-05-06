@@ -22,6 +22,12 @@
     top:2vh;
     margin: 10px;
     font-size:20px;
+    color:black;
+    transition:.5s;
+}
+.nav__flex-redes:hover{
+    color:rgb(183, 123, 13);
+    transition:.5s;
 }
 .nav__flex-logo{
     position:absolute;
