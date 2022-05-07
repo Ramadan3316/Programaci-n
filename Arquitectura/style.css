@@ -15,14 +15,34 @@
     height:auto;
     position:relative;
     padding:10px;
+    display:flex;
+    justify-content: left;
+    align-items:center;
 }
 .nav__flex-redes{
-    position:relative;
-    width: 2vw;
-    top:2vh;
-    margin: 10px;
+    margin:10px;
+    margin-left:10px;
     font-size:20px;
     color:black;
+    transition:.5s;
+    cursor:pointer;
+}
+
+.nav__flex li{
+    list-style-type: none;
+    position:relative;
+}
+.nav__flex-redesSub{
+    position:absolute;
+    padding-top:5px;
+    background-color:#F2F2F2;
+    font-size: 15px;
+}
+.nav__flex-redesSub a{
+    transition:.5s;
+}
+.nav__flex-redesSub a:hover{
+    color:rgb(183, 123, 13);
     transition:.5s;
 }
 .nav__flex-redes:hover{
