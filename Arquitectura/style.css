@@ -40,6 +40,7 @@
 }
 .nav__flex-redesSub a{
     transition:.5s;
+    color:black;
 }
 .nav__flex-redesSub a:hover{
     color:rgb(183, 123, 13);
@@ -50,6 +51,7 @@
     transition:.5s;
 }
 .nav__flex-logo{
+    text-align: center;
     position:absolute;
     width:300px;
     box-sizing: border-box;
@@ -65,9 +67,17 @@
     width:100%;
     height: 88vh;
     display:flex;
-    background-size: cover;
-    background-image: url(https://p1.pxfuel.com/preview/808/979/765/architecture-building-infrastructure-structure.jpg);
+    background: linear-gradient(150deg,white,rgb(239, 211, 158),rgb(231, 176, 76),rgb(239, 211, 158),rgb(255, 255, 255));
+    animation: BgGradient 5s ease infinite;
+    background-size: 400% 300%;
+    /* background-size: cover;
+    background-image: url(https://p1.pxfuel.com/preview/808/979/765/architecture-building-infrastructure-structure.jpg); */
     justify-content:center;
+}
+@keyframes BgGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 .homeImage__Title{
     color: rgb(13, 13, 13);

@@ -1,0 +1,20 @@
+.article__title{
+    text-align: center;
+    color:black;
+    transition:.5s;
+}
+.article__title:hover{
+    color:rgb(183, 123, 13);
+    transition:.5s;
+}
+.article__flex{
+    display:flex;
+}
+.article__flex p{
+    font-family:'PT Sans', sans-serif;
+    font-size: 20px;
+    padding: 10px;
+    letter-spacing: 1px;
+    margin:10px;
+    text-align: center;
+}
