@@ -16,8 +16,9 @@ let num6 = document.querySelector(".num6")
 let num7 = document.querySelector(".num7")
 let num8 = document.querySelector(".num8")
 let num9 = document.querySelector(".num9")
-let num0 = document.querySelector(".num0")
+let num0 = document.querySelector(".num0");
 let ac = document.querySelector(".AC")
+let coma = document.querySelector(".coma");
 
 function Numeros(){
     let verificacion = true;
@@ -38,6 +39,7 @@ function Numeros(){
         }else if(ingresado[0] == "-" || ingresado[1] == "-"){
             negativo = true;
             console.log("Se encontro el numero negativo en el index "+num)
+            console.log("El numero negativo es "+ingresado[num]);
         }
     }
     let num1 = ingresado.slice(0,posNum1);
@@ -50,6 +52,9 @@ function Numeros(){
     division = ingresado.includes("/");
     if(suma == true){
        resultado = num1+num2;
+    }else if(suma == true && negativo==true){
+        numnegativo = -1*num1
+        resultado = numnegativo+num2
     }
     if(resta == true){
         resultado = num1-num2;
@@ -111,6 +116,9 @@ ac.addEventListener("click",()=>{
     display.value = " ";
 })
 
+coma.addEventListener("click",()=>{
+    display.value= display.value+".";
+})
 multiplicar.addEventListener("click",()=>{
     display.value =  display.value + "*" ;
     // console.log(display.innerHTML =  inputValue + "*" )
