@@ -2,27 +2,31 @@
     margin:0;
     padding:0;
 }
-.container{
-    width: 200px;
-    height:50px;
-    border:2px solid red;
-    display:flex;
-    justify-content: center;
-    align-items: center;
+body{
+    background-color:rgb(21, 209, 49);
 }
-.container__nav{
-    color:black;
-    transition:.5s;
+.title{
+    display:relative;
+    background-color:black;
+    margin: 10px 10px 10px 10px;
+    padding:10px;
+    text-align:center;
 }
-.container__nav:hover{
-    color:orange;
-    transition:.5s;
+
+h1{
+    color:rgb(21, 209, 49);
+    width:100%; 
 }
-.container__navSub li{
-    border:2px solid green;
-    display:none;
+
+#input{
+    padding:10px;
+    background-color:black;
+    text-align:center;
+    margin:10px 20% ;
 }
-.container__navSub li:hover{
-    border:2px solid green;
-    display:inline-block;
+
+input{
+    width:20%;
+    height:30px;
+    margin-top:10px;
 }
