@@ -4,13 +4,15 @@ const touch = document.querySelector(".touch");
 const next = document.querySelector(".next")
 
 image.addEventListener("click",()=>{
-    slider.style.display = "inline-block";
+    slider.style.display = "flex";
     console.log("se presiono la imagen");
+    slider.style.animation = "slider 5s fowards";
 })
 
 touch.addEventListener("click",()=>{ 
     slider.style.display = "none";
     console.log("Se toco el volver");
+    slider.style.animation = "slider 5s fowards";
 })
 
 next.addEventListener("click",()=>{
