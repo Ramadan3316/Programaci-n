@@ -25,37 +25,57 @@ function Numeros(){
     let negativo = false;
     let posNum1=0;
     let ingresado = display.value;
+    
     for(num in ingresado){
-       if(ingresado[num] == "+" ||ingresado[num] == "-" ||ingresado[num] == "*" ||ingresado[num] == "/"){
-            console.log(`se encontro el ${ingresado[num]} en el index ${num}`);
+       
+        if((ingresado[num] == "+" ||ingresado[num] == "-" ||ingresado[num] == "*" ||ingresado[num] == "/")&&ingresado[num]!="-"){
+            console.log(`Se encontro el ${ingresado[num]} en el index ${num}`);
             num = parseInt(num);
             posNum2 = num + 1;
-            // console.log("La posicion del numero 2 es "+posNum2);
             verificacion = false;
-        }else if(ingresado[num] != "+" && verificacion == true || 
+
+        }else if((ingresado[num] != "+" && verificacion == true || 
         ingresado[num] != "/" && verificacion == true || ingresado[num] != "*" && verificacion == true 
-        || ingresado[num] != "-" && verificacion == true){
+        || ingresado[num] != "-" && verificacion == true)&&ingresado[num]!="-"){
             posNum1 ++;
-        }else if(ingresado[0] == "-" || ingresado[1] == "-"){
+        
+        }else if(ingresado[num] == "-"){
+            console.log("Se encontro el numero negativo en el index "+num);
+            console.log(`El valor del index 1 es ${ingresado[1]}`)
             negativo = true;
             console.log("Se encontro el numero negativo en el index "+num)
             console.log("El numero negativo es "+ingresado[num]);
         }
+    } 
+
+    let num1;
+    let num2;
+
+    if(negativo == true){
+        num1 = ingresado.slice(1,posNum1);
+        num2 = ingresado.slice(posNum2);
+        console.log(`El num1 es ${num1} y el num2 es ${num2}`)
+    }else{
+        console.log(`El num1 es ${num1} y el num2 es ${num2}`)
+        num1 = ingresado.slice(0,posNum1);
+        num2 = ingresado.slice(posNum2);
     }
-    let num1 = ingresado.slice(0,posNum1);
-    let num2 = ingresado.slice(posNum2);
+    
     num1 = parseFloat(num1);
     num2 = parseFloat(num2);
+
     suma = ingresado.includes("+");
     resta = ingresado.includes("-"); 
     multiplicacion = ingresado.includes("*");
     division = ingresado.includes("/");
-    if(suma == true){
+    
+    if(suma == true && negativo == false){
        resultado = num1+num2;
     }else if(suma == true && negativo==true){
         numnegativo = -1*num1
         resultado = numnegativo+num2
     }
+
     if(resta == true){
         resultado = num1-num2;
     }
@@ -68,10 +88,6 @@ function Numeros(){
     return resultado;
 }
 
-for(i=0;i>9;i++){
-   let numeros = document.querySelector(`.num${i}`);
-   console.log(numeros[i]);
-}
 num1.addEventListener("click",()=>{
     display.value = display.value + 1;
 })
