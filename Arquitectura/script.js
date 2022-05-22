@@ -1,22 +1,22 @@
 const image = document.querySelector(".imagePoint")
 const slider = document.querySelector(".imageExample");
 const touch = document.querySelector(".touch");
-const next = document.querySelector(".next")
+const next = document.getElementById("next");
+const nav = document.querySelector("#nav");
 
 image.addEventListener("click",()=>{
     slider.style.display = "flex";
+    // slider.style.position = "absolute"
+    nav.style.display = "none";
     console.log("se presiono la imagen");
     slider.style.animation = "slider 5s fowards";
 })
 
 touch.addEventListener("click",()=>{ 
     slider.style.display = "none";
+    nav.style.display = "block";
     console.log("Se toco el volver");
     slider.style.animation = "slider 5s fowards";
-})
-
-next.addEventListener("click",()=>{
-    console.log("Se toco el next")
 })
 
 function ver() {
