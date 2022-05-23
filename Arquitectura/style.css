@@ -93,7 +93,7 @@
     grid-template-columns: repeat(auto-fill,minmax(30vh,1fr));
     grid-auto-rows: 20vw;
     grid-gap: 5px;
-   background-color:#F2F2F2;
+    background-color:#F2F2F2;
     overflow: hidden;
     
 }
@@ -134,16 +134,10 @@
     background-color: rgba(0, 0, 0,0.9);
     position:absolute;
     width: 100%;
-    height: 88vh;
+    height: 100%;
     z-index:200;
     display:none;
-}
-.imageExample img{
-    margin-top: 20px;
-    position:absolute;
-    object-fit: scale-down;
-    width:100%;
-    height:90%;
+    margin-top:0vh;
 }
 
 .volver{
@@ -180,6 +174,30 @@
     border-radius:0 3px 3px 0;
 }
 
+#slideshow-container{
+    position:relative;
+    overflow: hidden;
+}
+
+.mySlides{
+    position:relative;
+    overflow: hidden;
+    object-fit: scale-down;
+    margin-left:25%;
+    display:none;
+    max-width: 50%;
+    height: 88vh;
+    border: 2px solid red;
+}
+
+.mySlides img{
+    margin-top: 20px;
+    position:absolute;
+    object-fit: scale-down;
+    width:100%;
+    height:90%;
+} 
+
 .next{
     right:0;
     border-radius:3px 0 0 3px;
@@ -208,7 +226,7 @@
 
 .touch{
     display:absolute;
-    border:1px solid black;
+    border:3px solid red;
     outline: none;
     left:0;
     top:0;
