@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
+    <link rel="stylesheet" href="style.css">
     <head>
-        <title>Weather</title>
+        <title>Tareas</title>
     </head>
     <body>
-        
+        <div class="divTareas">
+            <h2>LISTA DE TAREAS</h2>
+            <div class="divTareas__nav">
+                <h3>PEnDIEnTES </h3>
+                <h3>COMPLETADAS</h3>
+                <h3>IMPORTAnTES</h3>
+            </div>
+            <ul class="divTareas__lista">
+                <li class="divTareas__listaTareas1 tarea" onclick="taskCompleted(1)" value="1">tarea 1</li>
+                <li class="divTareas__listaTareas2 tarea" onclick="taskCompleted(2)" value="2">tarea 2</li>
+                <li class="divTareas__listaTareas3 tarea" onclick="taskCompleted(3)" value="3">tarea 3</li>
+            </ul>
+            <input class="divTareas__listaAdd" onclick="addTask()" placeholder="AGREGAR TAREA"></input>
+        </div>
+        <script type="text/javascript" src="main.js"></script>
     </body>
 
 
