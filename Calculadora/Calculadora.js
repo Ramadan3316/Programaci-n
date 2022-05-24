@@ -27,7 +27,7 @@ function Numeros(){
     let ingresado = display.value;
     
     for(num in ingresado){
-       
+
         if((ingresado[num] == "+" ||ingresado[num] == "-" ||ingresado[num] == "*" ||ingresado[num] == "/")&&ingresado[num]!="-"){
             console.log(`Se encontro el ${ingresado[num]} en el index ${num}`);
             num = parseInt(num);
@@ -52,6 +52,8 @@ function Numeros(){
     let num2;
 
     if(negativo == true){
+        console.log(ingresado);
+        posNum1++;
         num1 = ingresado.slice(1,posNum1);
         num2 = ingresado.slice(posNum2);
         console.log(`El num1 es ${num1} y el num2 es ${num2}`)
@@ -72,19 +74,31 @@ function Numeros(){
     if(suma == true && negativo == false){
        resultado = num1+num2;
     }else if(suma == true && negativo==true){
-        numnegativo = -1*num1
-        resultado = numnegativo+num2
+        numnegativo = -num1;
+        resultado = numnegativo+num2;
     }
 
-    if(resta == true){
+    if(resta == true && negativo == false){
         resultado = num1-num2;
+    }else if(resta == true && negativo == true && multiplicacion == false && suma == false && division == false){
+        numnegativo = -num1;
+        resultado = numnegativo-num2;
     }
-    if(multiplicacion == true){
+
+    if(multiplicacion == true && negativo == false){
         resultado = num1*num2;
+    }else if (multiplicacion == true && negativo == true){
+        numnegativo = -num1;
+        resultado = numnegativo*num2;
     }
-    if(division == true){
+
+    if(division == true && negativo == false){
         resultado = num1/num2;
+    }else if (division == true && negativo == true){
+        numnegativo = -num1;
+        resultado = numnegativo/num2;
     }
+
     return resultado;
 }
 
@@ -127,9 +141,8 @@ num0.addEventListener("click",()=>{
     display.value = display.value + 0;
 })
 
-
 ac.addEventListener("click",()=>{
-    display.value = " ";
+    display.value = null;
 })
 
 coma.addEventListener("click",()=>{
@@ -156,8 +169,8 @@ restar.addEventListener("click",()=>{
 })
 
 igual.addEventListener("click",()=>{
-    divDisplay.classList.add("resultado");
     resultado = Numeros();  
+    divDisplay.classList.add("resultado");
     console.log(resultado)
     display.value = resultado;
 })
