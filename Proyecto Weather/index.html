@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grape+Nuts&family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <head>
         <title>Tareas</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     </head>
     <body>
-        <div class="divTareas">
-            <h2>LISTA DE TAREAS</h2>
-            <div class="divTareas__nav">
-                <h3>PEnDIEnTES </h3>
-                <h3>COMPLETADAS</h3>
-                <h3>IMPORTAnTES</h3>
-            </div>
-            <ul class="divTareas__lista">
-                <li class="divTareas__listaTareas1 tarea" onclick="taskCompleted(1)" value="1">tarea 1</li>
-                <li class="divTareas__listaTareas2 tarea" onclick="taskCompleted(2)" value="2">tarea 2</li>
-                <li class="divTareas__listaTareas3 tarea" onclick="taskCompleted(3)" value="3">tarea 3</li>
+        <div class="tareas">
+            <i class="fa-solid fa-arrow-left-long flecha animatedColor"></i>
+            
+            <h2>TO DO LIST</h2>
+            <ul class="tareas__lista">
+                <input class="tareas__listaAdd" onclick="addTask()" placeholder="AGREGAR TAREA"></input>
+                <!-- <li class="tareas__listaTareas1 tarea" onclick="taskCompleted(1)">tarea 1<i class="fa-regular fa-square li"></i></li>
+                <li class="tareas__listaTareas2 tarea" onclick="taskCompleted(2)">tarea 2<i class="fa-regular fa-square li"></i></li>
+                <li class="tareas__listaTareas3 tarea" onclick="taskCompleted(3)">tarea 3<i class="fa-regular fa-square li"></i></li> -->
             </ul>
-            <input class="divTareas__listaAdd" onclick="addTask()" placeholder="AGREGAR TAREA"></input>
         </div>
+
+        <div class="tareas__nav">
+            <input class="tareas__navInput" placeholder="AGREGAR CARPETA"></input>
+            <h3>PROYECTO1</h3>
+            <h3>PROYECTO2</h3>
+            <h3>PROYECTO3</h3>
+        </div>
+        <script src="https://kit.fontawesome.com/6ec20b7979.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="main.js"></script>
     </body>
-
 
 </html>

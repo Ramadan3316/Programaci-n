@@ -1,52 +1,65 @@
 
-const  taskList = document.querySelector(".divTareas__lista")
-      
+const  taskList = document.querySelector(".tareas__lista")
 let lista = [];
+
 console.log("el value del list es "+taskList.value)
 
+//FUNCION PARA COMPLETAR LAS TAREAS
 function taskCompleted(index){
+    
     const task = document.querySelectorAll(".tarea");
     let taskLength = task.length;
-    console.log("el largo del div es "+taskLength)
+    console.log("el largo del div es "+taskLength);
+    //Guardo en cada posicion del arr Lista un elemento distinto de la lista
     for(let i = 1;i < taskLength+1; i++){
-        lista[i] = document.querySelector(`.divTareas__listaTareas${i}`)
-        console.log("entre al for")
+        lista[i] = document.querySelector(`.tareas__listaTareas${i} > .li`) //Accedo al hijo .li del padre tareas
+        console.log("entre al for");
     }  
-    console.log("el index de la lista que presiono")
-    console.log(lista[index]);
-    console.log("voy a camiar el diseño de la lista n°"+index)
-    lista[index].style.listStyle =  "square inside";
-    lista[index].style.textDecoration = "line-through"
-    // l.style.listStyle =  "square inside";
+    let claseLista = lista[index].classList;
+    console.log(claseLista[1]);
+    
+    if(claseLista[1] == "fa-square"){
+        lista[index].setAttribute ("class","fa-solid fa-check-square li");
+    }else{
+        lista[index].setAttribute ("class","fa-regular fa-square li");
+    }   
 }
 
+//FUNCION PARA AGREGAR TAREAS
 function addTask(){
     const task = document.querySelectorAll(".tarea");
     let taskLength = task.length;
     i=taskLength+1;
-    const inputList = document.querySelector(".divTareas__listaAdd")
-    console.log("el valor es: "+inputList.value)
+    const inputList = document.querySelector(".tareas__listaAdd")
     
     document.onkeydown = function(e){
         if(inputList.value != ""){
-        var ev = document.all ? window.event : e;
-        if(ev.keyCode==13) {
-            const newTask = document.querySelector(".divTareas__listaAdd");
-            console.log(typeof newTask)
-            if(newTask.value != undefined){
-                const addTask = document.createElement("LI");
-                addTask.innerHTML = newTask.value;
+            var ev = document.all ? window.event : e;
+            if(ev.keyCode==13) {
+                const newTask = document.querySelector(".tareas__listaAdd");
+                console.log(typeof newTask);
 
-                taskList.appendChild(addTask);  
-                newTask.value = null;
+                if(newTask.value != undefined){
+                    const addTask = document.createElement("LI"); // Cre un nuevo LI para el nuevo elemento de la lista
+                    const addIcon = document.createElement("I")
 
-                addTask.setAttribute("class",`divTareas__listaTareas${i} tarea`);
-                addTask.setAttribute("onclick",`taskCompleted(${i})`);
-                console.log("Agregue la tarea n°"+i);
-                i++;
+                    addTask.innerHTML = newTask.value;
+                    
+                    taskList.appendChild(addTask);//Agrega al padre taskList(lista) un elemento mas addTask
+                    
+                    addTask.setAttribute("class",`tareas__listaTareas${i} tarea`);
+                    addTask.setAttribute("onclick",`taskCompleted(${i})`);
+                    addTask.setAttribute("dblclick","taskCompleted(-1)");
+                    
+                    addTask.appendChild(addIcon);
+                    addIcon.setAttribute("class","fa-regular fa-square li");
+
+                    console.log("Agregue la tarea n°"+i);
+                    
+                    newTask.value = null;
+                    i++;
+                }
             }
-            
         }
-    }
     }
 }
