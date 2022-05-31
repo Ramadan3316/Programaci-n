@@ -10,30 +10,41 @@
     <head>
         <title>Mama</title>
     </head>
-    <body>
+    <body id="body">
         <header>
             <nav id="nav">
-                <div class="nav__flex">
-                    <a class="nav__flex-redes" href="https://instagram.com" target="_BLANK">INSTAGRAM</a>
-                    <a class="nav__flex-redes" href="https://facebook.com">WHATSAPP</a>
-                    <p class="nav__flex-redes nav__flex-logo"><b>C</b>ARNICER|<b>S</b>OUBLÉ <b>ARQ</b>UITECTOS</p>
-                </div>
+                <p class="nav__logo"><b>C</b>ARNICER|<b>S</b>OUBLÉ <b>ARQ</b>UITECTOS</p>
+                <div class="nav__menuLogo"><i class="fa-solid fa-bars fa-3x"></i></div>
+                <ul class="nav__menu">
+                    <li class="salirMenu"><img src="Imagenes/salirMenu.png"></li>
+                    <li>OBRAS PUBLICAS</li>
+                    <li>CASAS</li>
+                    <li>EDIFICOS</li>
+                    <li>REMODELACIONES</li>
+                    <li>SOBRE NOSOTROS</li>
+                </ul>
             </nav>
              <div class="homeImage">
                 <div class="homeImage__Title">
-                    <h1>EL GORDO ES GORDO</h1>
+                    <h1>LO PEOR ES PEDIR</h1>
                 </div>
             </div>
         </header>
         <article>
             <section class="imagesGrid">
-                <a onclick="selectImage(1)" class="imagesGrid__img1"><img class="imagePoint" src="Imagenes/casa4.webp"></a>
-                <a onclick="selectImage(2)" class="imagesGrid__img2"><img src="Imagenes/casa1.jpg"></a>
-                <a onclick="selectImage(3)" class="imagesGrid__img3"><img src="Imagenes/casa3.jpg"></a>
-                <a onclick="selectImage(4)" class="imagesGrid__img4"><img src="Imagenes/casa2.jpg"></a>
+                <a onclick="selectImage(1)" class="imagesGrid__img1 length">
+                    <img class="classTest" src="Imagenes/casa4.webp">
+                    <img class="classTest" src="Imagenes/GarageImage4.jpg">
+                    <img class="classTest" src="Imagenes/EntradaImage4.jpg">
+                </a>
+                <a onclick="selectImage(2)" class="imagesGrid__img2 length"><img src="Imagenes/casa1.jpg"></a>
+                <a onclick="selectImage(3)" class="imagesGrid__img3 length"><img src="Imagenes/casa3.jpg"></a>
+                <a onclick="selectImage(4)" class="imagesGrid__img4 length"><img src="Imagenes/casa2.jpg"></a>
             </section>
             <div class="slide1">
-                <!-- <a onclick="selectImage(1)" class="imageSlide"><img src="Imagenes/casa4.webp"></a> -->
+                <i class="fa-solid fa-xmark fa-2x"></i>
+                <i class="fa-solid fa-angles-left fa-3x prev"></i>
+                <i class="fa-solid fa-angles-right fa-3x next"></i>
             </div>
         </article>
 

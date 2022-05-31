@@ -1,53 +1,92 @@
-// const image = document.querySelector(".imagePoint")
-// const slider = document.querySelector(".imageExample");
-// const touch = document.querySelector(".touch");
-// const next = document.getElementById("next");
-// const nav = document.querySelector("#nav");
 
-// image.addEventListener("click",()=>{
-//     slider.style.display = "flex";
-//     // slider.style.position = "absolute"
-//     nav.style.display = "none";
-//     console.log("se presiono la imagen");
-//     slider.style.animation = "slider 5s fowards";
-// })
-
-// touch.addEventListener("click",()=>{ 
-//     slider.style.display = "none";
-//     nav.style.display = "block";
-//     console.log("Se toco el volver");
-//     slider.style.animation = "slider 5s fowards";
-// })
-
-// function ver() {
-//     document.querySelector(".nav__flex-redesSub").style.display="block";
-//     document.querySelector(".nav__flex-redesSub").style.transition="all 2s";
-// }
-// function ocultar() {
-//     document.querySelector(".nav__flex-redesSub").style.display="none";
-//     document.querySelector(".nav__flex-redesSub").style.transition="all 2s";
-// }
-
-// function showSlides() {
-//     var slideIndex = 0;
-//     var slides = document.getElementsByClassName("mySlides");
-//     for (i = 0; i < slides.length; i++) {
-//         slides[i].style.display = "none";
-//     }
-//     slideIndex++;
-//     if(slideIndex > slides.length) slideIndex = 1
-//     slides[slideIndex-1].style.display = "block";
-// }
-// showSlides();
-
-
-let clickImage = []
+/* FUNCION DE MOSTRAR FIRST SLIDE */
+const slideShow = document.querySelector(".slide1");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+const body = document.querySelector("#body");
+const slideLength = document.querySelectorAll(".length")
 function selectImage(index){
-    for(let i = 0; i < 5; i++){
-        clickImage[i] = document.querySelector(`.imagesGrid__img${i}`);
+    console.log()
+    //Guardo la lista HTML en un arr
+    let clickImage = []
+    for(let i = 0; i < slideLength.length; i++){
+        clickImage[i] = document.querySelector(`.imagesGrid__img${i}`); 
     }
-    imageClass = clickImage[index].classList;
-    console.log("las clases de las imagenes son "+imageClass);
+    body.style.overflow="hidden";
+    //Obtengo el primer nodo de la etiqueta <a>(imagen)
+    let firstImage = clickImage[index].firstElementChild;
+    //Contenedor de las imagenes
+    slideShow.style.display = "block";
 
-
+    //Primera imagen que aparece
+    const img = document.createElement("img");
+    firstSibling = firstImage.nextElementSibling;
+    img.src = firstImage.src;
+    img.setAttribute("class",`slide1__image slider`);
+    img.setAttribute("id","slide")
+    slideShow.appendChild(img);
+    
+    /* PASAR IMAGENES */
+    let lengthDiv = clickImage[index].querySelectorAll(".classTest").length;//DEFINO LA CANTIDAD DE IMAGENES
+    let i = 1;
+    console.log("el length es: "+lengthDiv)
+    next.addEventListener("click",()=>{
+        if(i < lengthDiv){
+            let fFirstSibling = firstImage.nextElementSibling;
+            slideShow.removeChild(img);
+            img.src = fFirstSibling.src;
+            slideShow.appendChild(img);
+            firstImage = fFirstSibling;
+            i++;
+            console.log("y vale: "+i)
+        }else{
+            slideShow.removeChild(img);
+            img.src = clickImage[index].firstElementChild.src;
+            slideShow.appendChild(img)
+            firstImage = clickImage[index].firstElementChild;
+            i=1;
+        } 
+    })
+    prev.addEventListener("click",()=>{
+        if(i <= lengthDiv && i != 1){
+            let fFirstSibling = firstImage.previousElementSibling;
+            slideShow.removeChild(img);
+            img.src = fFirstSibling.src;
+            slideShow.appendChild(img);
+            firstImage = fFirstSibling;
+            i--;
+            console.log("y vale: "+i)
+        }else{
+            slideShow.removeChild(img);
+            img.src = clickImage[index].lastElementChild.src;
+            slideShow.appendChild(img)
+            firstImage = clickImage[index].lastElementChild;
+            i=lengthDiv;
+        } 
+    })
 }
+
+/* FUNCION DE VOLVER */
+const backButton = document.querySelector(".fa-xmark"); //Selecciono el icono cross
+const sliderImages = document.querySelector(".slider")
+backButton.addEventListener("click",()=>{
+    slideShow.style.display="none";
+    slideShow.removeChild(slideShow.lastElementChild);
+    body.style.overflow="visible"
+})
+
+                // MENU LATERAL
+const menuLogo = document.querySelector(".nav__menuLogo");
+const menu = document.querySelector(".nav__menu")
+const salir = document.querySelector(".salirMenu");
+
+menuLogo.addEventListener("click",()=>{
+    body.style.backgroundColor = "black"
+    menu.style.display = "block";
+})
+
+salir.addEventListener("click",()=>{
+    body.style.backgroundColor = "none"
+    menu.style.display = "none";
+    menuLogo.style.marginRight = "10px"
+})
