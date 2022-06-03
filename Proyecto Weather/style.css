@@ -55,7 +55,9 @@
     height:30px;
     border-bottom: 2px solid rgb(175, 110, 121);
 }
+
 /* INPUT DE LAS LISTAS */
+
 .tareas__listaAdd{
     margin:5px;
     padding:3px;
@@ -89,7 +91,6 @@
 .tareas__lista li, input{
     position:relative;
     box-sizing: content-box;
-    text-align: center;
     margin:auto;
     background-color:#9fb8d5;
     margin-top:10px;
