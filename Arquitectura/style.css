@@ -246,4 +246,20 @@
 }
 
 
-
+/*ANIMACION DE INICIO*/
+.container{
+    background-color:black;
+    display:flex;
+    width:100vw;
+    height:100vh;
+    margin:0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+.loadText{
+    color:white;
+    font-size:100px;
+    -webkit-box-reflect: below -25px -webkit-gradient(linear, left top, left bottom, 
+    from(transparent), to(rgba(255, 255, 255, 0.5)));
+}

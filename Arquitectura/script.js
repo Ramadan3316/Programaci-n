@@ -90,3 +90,28 @@ salir.addEventListener("click",()=>{
     menu.style.display = "none";
     menuLogo.style.marginRight = "10px"
 })
+
+
+/* INGRESO A LA PAGINA */
+
+const loadContainer = document.querySelector(".container");
+const containerTotal = document.querySelector("#containerTotal");
+let text = "BIENVENIDOS"
+window.addEventListener('load', ()=>{
+    containerTotal.style.display="none";
+    let textAnimation = text.split("");
+    let i = 0;
+    let printText = setInterval(function(){
+        let newText = document.createElement("DIV");
+        newText.innerHTML += textAnimation[i];
+        newText.setAttribute("class","loadText");
+        loadContainer.appendChild(newText);
+        i++;
+        if(i == textAnimation.length) clearInterval(printText);
+    },200);
+
+    setTimeout(function(){
+        loadContainer.style.display="none";
+        containerTotal.style.display="block";
+    },3500);
+});
