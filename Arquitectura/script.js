@@ -75,7 +75,7 @@ backButton.addEventListener("click",()=>{
     body.style.overflow="visible"
 })
 
-                // MENU LATERAL
+    // MENU LATERAL
 const menuLogo = document.querySelector(".nav__menuLogo");
 const menu = document.querySelector(".nav__menu")
 const salir = document.querySelector(".salirMenu");
@@ -101,17 +101,33 @@ window.addEventListener('load', ()=>{
     containerTotal.style.display="none";
     let textAnimation = text.split("");
     let i = 0;
-    let printText = setInterval(function(){
-        let newText = document.createElement("DIV");
+    let newText = document.createElement("DIV");
+    let printText = setInterval(function(){ 
         newText.innerHTML += textAnimation[i];
         newText.setAttribute("class","loadText");
         loadContainer.appendChild(newText);
         i++;
         if(i == textAnimation.length) clearInterval(printText);
-    },200);
+    },150);
 
     setTimeout(function(){
-        loadContainer.style.display="none";
-        containerTotal.style.display="block";
-    },3500);
+        containerTotal.style.display = "block";
+        loadContainer.style.animation = "loadAnimation 2s 1";
+        body.style.overflow="hidden";
+    },2500);
+
+    setTimeout(function(){
+        loadContainer.style.display = "none";
+        body.style.overflow="visible";
+    },4400);
 });
+
+const arrowHome = document.querySelector(".arrowDown");
+const lastElement = document.querySelector(".imagesGrid__img1"); 
+arrowHome.addEventListener("click",()=>{
+    console.log("se presiono la flecha");
+    let y = parseInt(lastElement.getBoundingClientRect().bottom);
+    window.scrollBy({
+        left: 0, top: y, behavior: 'smooth' 
+    });
+})

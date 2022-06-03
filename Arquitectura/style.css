@@ -82,7 +82,7 @@
     position: relative;
     margin-top: 12vh;
     width:100%;
-    height: 100vh;
+    height: 88vh;
     display:flex;
     background: linear-gradient(150deg,white,rgb(239, 211, 158),rgb(231, 176, 76),rgb(239, 211, 158),rgb(255, 255, 255));
     animation: BgGradient 5s ease infinite;
@@ -103,8 +103,8 @@
 }
 .homeImage__Title h1{
     font-size: 3em;
-    backdrop-filter: blur(10px);
-    
+    backdrop-filter: blur(50px);
+    /* box-shadow: 0px 2px 2px; */
 }
 
 /* ANIMACION DE FONDO */
@@ -153,6 +153,7 @@
     transition:1s;
     border-radius: 5px;
     margin-top: 10px;
+    margin-bottom:10px;
 }
 .imagesGrid img:hover{
     overflow:none;
@@ -240,15 +241,14 @@
 }
 .fa-angles-left:hover,.fa-angles-right:hover{
     cursor:pointer;
-    color:black;
-    background-color:rgba(255, 255, 255, 0.526);
+    color:rgb(183, 123, 13);
     transition:.5s;
 }
 
 
 /*ANIMACION DE INICIO*/
 .container{
-    background-color:black;
+    background-color:rgb(243, 165, 20);
     display:flex;
     width:100vw;
     height:100vh;
@@ -258,8 +258,43 @@
     align-items: center;
 }
 .loadText{
-    color:white;
+    color:rgb(0, 0, 0);
     font-size:100px;
     -webkit-box-reflect: below -25px -webkit-gradient(linear, left top, left bottom, 
     from(transparent), to(rgba(255, 255, 255, 0.5)));
+}
+@keyframes loadAnimation{
+    from{
+        margin-top:0;
+        overflow:hidden;
+    }
+    to{
+        margin-top:-100vh;
+        overflow:hidden;
+    }
+    100%{
+        display:none;
+        overflow:hidden;
+    }
+}
+
+/* STYLE DE FLECHAS InICIO*/
+.arrowDown{
+    position:absolute;
+    display: inline-block;
+    bottom:15px;
+    right:10%;
+    animation: flechaInicio 1s ease-in-out infinite;
+}
+
+@keyframes flechaInicio{
+    0% {
+        transform: translate(0px, 6.5px);
+    }
+    50% {
+        transform: translate(0px, -4px);
+    }
+    100% {
+        transform: translate(0px, 6.5px);
+    }    
 }
