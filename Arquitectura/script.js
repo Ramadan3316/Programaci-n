@@ -114,18 +114,17 @@ window.addEventListener('load', ()=>{
         containerTotal.style.display = "block";
         loadContainer.style.animation = "loadAnimation 2s 1";
         body.style.overflow="hidden";
-    },2500);
+    },2300);
 
     setTimeout(function(){
         loadContainer.style.display = "none";
         body.style.overflow="visible";
-    },4400);
+    },4300);
 });
 
 const arrowHome = document.querySelector(".arrowDown");
 const lastElement = document.querySelector(".imagesGrid__img1"); 
 arrowHome.addEventListener("click",()=>{
-    console.log("se presiono la flecha");
     let y = parseInt(lastElement.getBoundingClientRect().bottom);
     window.scrollBy({
         left: 0, top: y, behavior: 'smooth' 

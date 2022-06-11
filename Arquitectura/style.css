@@ -64,6 +64,7 @@
     padding:5px;
     color:black;
     transition:.5s ease-in-out;
+    cursor:pointer;
 }
 
 .nav__menu li:hover{
@@ -245,7 +246,6 @@
     transition:.5s;
 }
 
-
 /*ANIMACION DE INICIO*/
 .container{
     background-color:rgb(243, 165, 20);
@@ -278,7 +278,7 @@
     }
 }
 
-/* STYLE DE FLECHAS InICIO*/
+/* STYLE DE FLECHAS INICIO*/
 .arrowDown{
     position:absolute;
     display: inline-block;
