@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\xampp\\htdocs\\Archivo de AJAX"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Programaci-n"
+	}
+}
