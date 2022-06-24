@@ -4,10 +4,13 @@
 			"path": "."
 		},
 		{
-			"path": "..\\..\\..\\..\\..\\xampp\\htdocs\\Archivo de AJAX"
+			"path": "..\\..\\..\\first-project"
+		},
+		{
+			"path": "..\\..\\OpenBootcamp"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Programaci-n"
+		"liveServer.settings.multiRootWorkspaceName": "first-project"
 	}
 }
