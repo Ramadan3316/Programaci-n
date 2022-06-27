@@ -20,16 +20,6 @@ function startGame() {
     playerPlay();
 }
 function playerPlay(){
-    const cells = document.querySelectorAll(".cells");
-
-    cells.forEach((cell,i)=>{
-        console.log("asdas",cell);
-        console.log(i);
-        // cell.addEventListener("click",()=>{
-
-        // })
-
-    });
 }
 
 function renderCurrectPlayer(){
