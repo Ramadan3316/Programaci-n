@@ -1,0 +1,13 @@
+h1{
+    height: 20vh;
+    color: Black;
+    text-align: center;
+}
+#caja{
+    display:flex;
+    height:80vh;
+    text-align: center;
+    border: 2px solid black;
+    justify-content: center;
+    margin: auto;
+}
