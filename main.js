@@ -36,20 +36,37 @@ function startGame(){
 }
 function pcPLay(){
     renderCurrentPlayer();
+    const options = canWin();
     setTimeout(()=>{
         console.log("Estoy aca");
-        const options = canWin();
         if(options.length > 0){ //Si es menor que 0 significa que apenas empezo el juego
             const bestPlay = options[0];
-            console.log("options es"+options.value)
-            console.log("best play es"+bestPlay.value);
+            console.log("options es"+options[0].value)
+            console.log("best play es"+bestPlay[0].value+bestPlay[1].value+bestPlay[2].value);
             for(let i = 0; i < bestPlay.length; i++){
-                if(bestOption.value == 0){ // verifica que no haya nada en esa posición
-                    const posR = bestPlay[i].r;
-                    const posC = bestPlay[i].c;
-                    board[posR][posC] = "O";
-                    break;
-                }
+                console.log("el for");
+                var posC,posR; 
+                bestPlay[0].value == 0 && turn == 0 ? (
+                    posR = bestPlay[i].r,
+                    posC = bestPlay[i].c
+                    ) : (
+                    console.log("valor [0] fue false")
+                    );
+                bestPlay[1].value == 0 && turn == 0 ?(
+                    posR = bestPlay[i].r,
+                    posC = bestPlay[i].c
+                    ) : (
+                    console.log("valor [1] fue false")
+                    );
+                bestPlay[2].value == 0 && turn == 0 ?(
+                    posR = bestPlay[i].r,
+                    posC = bestPlay[i].c
+                    ) : (
+                    console.log("valor [1] fue false")
+                    );
+                board[posR][posC] = "O";
+                turn = 1;
+                break;
             }
         }else{
             console.log("options es" + options[0])
@@ -63,7 +80,6 @@ function pcPLay(){
                 }
             }
         }
-        
         renderBoard();
         renderCurrentPlayer();
         playerPlay();
@@ -98,14 +114,13 @@ function canWin(){
     const w7 = [p1,p5,p9];
     const w8 = [p3,p5,p7];
     console.log(`Este es el arr ${w1[0]} y este es su value: ${w1[0].value}`);
-    const resultado = [w1,w2,w3,w4,w5,w6,w7,w8].filter((win)=>{
+    const res = [w1,w2,w3,w4,w5,w6,w7,w8].filter((win)=>{
         return win[0].value + win[1].value + win[2].value == 2 ||
         win[0].value + win[1].value + win[2].value == -4;
     })
-    console.log("el resultado es:"+resultado);
-    return resultado;
+    console.log("el resultado es:"+res);
+    return res;
 }
-
 function playerPlay(){
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell,i) =>{
