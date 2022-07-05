@@ -34,35 +34,41 @@ function startGame(){
     renderCurrentPlayer();
     playerPlay();
 }
+
 function pcPLay(){
     renderCurrentPlayer();
     const options = canWin();
     setTimeout(()=>{
-        console.log("Estoy aca");
         if(options.length > 0){ //Si es menor que 0 significa que apenas empezo el juego
             const bestPlay = options[0];
             console.log("options es"+options[0].value)
-            console.log("best play es"+bestPlay[0].value+bestPlay[1].value+bestPlay[2].value);
+            console.log("best play es"+bestPlay[0].value+" "+bestPlay[1].value+ " "+bestPlay[2].value);
             for(let i = 0; i < bestPlay.length; i++){
                 console.log("el for");
                 var posC,posR; 
-                bestPlay[0].value == 0 && turn == 0 ? (
+                console.log("play[0][0] es:",bestPlay[0][0].value);
+                bestPlay[0][0].value == 0 && turn == 0 ? (
                     posR = bestPlay[i].r,
-                    posC = bestPlay[i].c
+                    posC = bestPlay[i].c,
+                    console.log("pos[0] fue true")
                     ) : (
                     console.log("valor [0] fue false")
                     );
-                bestPlay[1].value == 0 && turn == 0 ?(
+                console.log("play[0][1] es:",bestPlay[0][1].value);
+                bestPlay[0][1].value == 0 && turn == 0 ?(
                     posR = bestPlay[i].r,
-                    posC = bestPlay[i].c
+                    posC = bestPlay[i].c,
+                    console.log("pos[1] fue true")
                     ) : (
                     console.log("valor [1] fue false")
                     );
-                bestPlay[2].value == 0 && turn == 0 ?(
+                    console.log("play[0][2] es:",bestPlay[0][2].value);
+                bestPlay[0][1].value == 0 && turn == 0 ?(
                     posR = bestPlay[i].r,
-                    posC = bestPlay[i].c
+                    posC = bestPlay[i].c,
+                    console.log("pos [2] fue true")
                     ) : (
-                    console.log("valor [1] fue false")
+                    console.log("valor [2] fue false")
                     );
                 board[posR][posC] = "O";
                 turn = 1;
@@ -74,7 +80,6 @@ function pcPLay(){
                 for(c = 0; c < board.length; c++) {
                     if(board[r][c] == "" && turn == 0){
                         board[r][c] = "O";
-                        console.log("estoy aca");  
                         turn = 1; 
                     } 
                 }
@@ -83,18 +88,20 @@ function pcPLay(){
         renderBoard();
         renderCurrentPlayer();
         playerPlay();
-    },1500)
+    },1000)
 }
 
 function canWin(){
     const arr = JSON.parse(JSON.stringify(board)); //Copia el arr bidimensional completamente 
-    for(let r = 0; r< arr.length; r++) {
+    for(let r = 0; r < arr.length; r++) {
         for(let c = 0; c < arr.length; c++) {
             if(arr[r][c] == "O") arr[r][c] = {value: 1,r,c} 
-            if(arr[r][c] == "") arr[r][c] = {value: 0,r,c}
-            if(arr[r][c] == "X") arr[r][c] = {value: -2,r,c}
+            else if(arr[r][c] == "") arr[r][c] = {value: 0,r,c}
+            else if(arr[r][c] == "X") arr[r][c] = {value: -2,r,c}
         }
     }
+    console.log("arr [0][0], arr[1][0]",arr[0][0].value+arr[1][0].value);
+
     const p1 = arr[0][0];
     const p2 = arr[0][1];
     const p3 = arr[0][2];
@@ -114,13 +121,18 @@ function canWin(){
     const w7 = [p1,p5,p9];
     const w8 = [p3,p5,p7];
     console.log(`Este es el arr ${w1[0]} y este es su value: ${w1[0].value}`);
+    let suma;
     const res = [w1,w2,w3,w4,w5,w6,w7,w8].filter((win)=>{
+        console.log("regreso 2:",win[0].value +""+ win[1].value+""+ win[2].value)
+        suma = win[0].value + win[1].value+ win[2].value;
+        console.log("la suma es:",suma);
         return win[0].value + win[1].value + win[2].value == 2 ||
         win[0].value + win[1].value + win[2].value == -4;
     })
-    console.log("el resultado es:"+res);
+    console.log("el resultado es:"+res[0]);
     return res;
 }
+
 function playerPlay(){
     const cells = document.querySelectorAll(".cell");
     cells.forEach((cell,i) =>{
