@@ -37,11 +37,10 @@ function startGame(){
     playerPlay();
 }
 
-
-
 function pcPLay(){
     renderCurrentPlayer();
     const options = canWin();
+    checkWinner();
     setTimeout(()=>{
         if(options.length > 0){ //Si es menor que 0 significa que apenas empezo el juego
             let bestPlay = options[0];
@@ -74,7 +73,7 @@ function pcPLay(){
                 }
             }
         }
-        checkWinner();
+        
         renderBoard();
         renderCurrentPlayer();
         playerPlay();
@@ -115,14 +114,16 @@ function checkWinner(){
     console.log("res es:",res[0]);
     if(res.length > 0){
         for(const element in res) {
-            let suma = res[element][element] + res[element][element + 1] + res[element][element + 2];        
-            console.log("suma es: ",res[element].value + res[element].value + res[element].value);
-            if(suma == -6) console.log("el X gano");
+            let suma = res[element][0].value + res[element][1].value + res[element][2].value;        
+            console.log("suma es: ",suma);
+            if(suma == -6){
+                console.log("el X gano");
+                    
+            }
             else if(suma == 3) console.log("el O gano");
             else console.log("Fue empate");
         } 
     }
-    
 }
 
 function canWin(){
