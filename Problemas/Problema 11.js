@@ -13,7 +13,7 @@ const alumnos =[{
     materia:"Programacion"
 }]
 
-let utton = document.querySelector(".button")
+let button = document.querySelector(".button")
 
 for(alumno in alumnos){
     let datos = alumnos[alumno];
@@ -33,7 +33,7 @@ for(alumno in alumnos){
         document.querySelector(".gridContainer").innerHTML += html;
         console.log(html);
 }
-utton.addEventListener("click",()=>{
+button.addEventListener("click",()=>{
     let elementos = document.querySelectorAll(".semana");
     let semanaElegida = document.querySelectorAll(".gridContainer__semanaElegida")
     for(elemento in elementos){

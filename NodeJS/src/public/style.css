@@ -1,0 +1,137 @@
+*{
+    text-decoration: none;
+    font-family: Oswald;
+}
+#body{
+    z-index:500;
+    overflow-y:visible;
+    background-color:rgb(0, 0, 0,0.9);  
+}
+/* NAV DE LA WEB */
+#nav{
+    width:100%;
+    height:12vh;
+    margin-top:-12vh;
+    box-shadow: 2px 2px 2px black;
+    position:fixed;
+    display:block;
+    z-index:100;
+    background-color:white;
+    transition: all 1 ease-in-out;
+    
+}
+.nav__logo{
+    position:absolute;
+    width:15rem;
+    right:0;
+    bottom:0;
+    left:0;
+    top:0;
+    margin:auto;
+    text-align:center;
+    padding:5px;
+    font-size:30px;
+}
+/* MENU LATERAL */
+.nav__menuLogo{
+    position:absolute;
+    width:40px;
+    right:0;
+    margin-top:10px;
+    margin-right:20px;
+    object-fit:scale-down;
+    transition:.5s;
+}
+
+.nav__menuLogo:hover{
+    cursor:pointer;
+}
+.nav__menu{
+    background-color:white;
+    border-left: 2px solid black;
+    height:100%;
+    width:35vw;
+    position:fixed;
+    right:0;
+    display:none;
+    background-color:white;
+    z-index:400;
+}
+
+.nav__menu li{
+    list-style:none;
+    font-size:25px;
+    margin:10px;
+    padding:5px;
+    color:black;
+    transition:.5s ease-in-out;
+    cursor:pointer;
+}
+
+.nav__menu li:hover{
+    color:orange;
+    transition:.5s ease-in-out;
+}
+
+.salirMenu{
+    width:3rem;
+    cursor:pointer;
+}
+
+/*  HOME IMAGE */
+
+.homeImage{
+    position: relative;
+    margin-top: 12vh;
+    width:100%;
+    height: 88vh;
+    display:flex;
+    background: linear-gradient(150deg,white,rgb(239, 211, 158),rgb(231, 176, 76),rgb(239, 211, 158),rgb(255, 255, 255));
+    animation: BgGradient 5s ease infinite;
+    background-size: 400% 300%;
+    /* background-size: cover;
+    background-image: url(https://p1.pxfuel.com/preview/808/979/765/architecture-building-infrastructure-structure.jpg); */
+    justify-content:center;
+}
+@keyframes BgGradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+.homeImage__Title{
+    color: rgb(13, 13, 13);
+    margin:auto;
+    z-index: 50;
+}
+.homeImage__Title h1{
+    font-size: 3em;
+    backdrop-filter: blur(50px);
+    /* box-shadow: 0px 2px 2px; */
+}
+
+/* ANIMACION DE FONDO */
+.fade{
+    -webkit-animation-name:fade;
+    -webkit-animation-duration:1s;
+    animation-name:fade;
+    animation-duration:1s;
+}
+
+@-webkit-keyframes fade{
+    from{opacity:.4}
+    to{opacity:1}
+}
+   
+@keyframes fade{
+    from{opacity:.4}
+    to{opacity:1}
+}
+
+@keyframes slider{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
