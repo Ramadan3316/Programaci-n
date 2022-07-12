@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\..\\..\\Desktop\\MdPE"
+		},
+		{
+			"name": "ArduinoESP32",
+			"path": "..\\..\\..\\..\\Desktop\\MdPE\\ArduinoESP32"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Programaci-n"
+	}
+}
