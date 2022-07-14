@@ -1,0 +1,12 @@
+[
+    {
+        "name" : "Nashe",
+        "id":"1",
+        "location" : "Buenos Aires"
+    },
+    {
+        "name" : "Jorgito",
+        "id":"2",
+        "location" : "Cordoba"
+    }
+]
