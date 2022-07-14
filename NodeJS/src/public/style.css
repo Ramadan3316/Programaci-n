@@ -1,4 +1,12 @@
+/*b n */
 *{
+    margin:0;
     text-decoration: none;
     font-family: Oswald;
+    list-style:none;
 }
+
+/* {
+    width:100vw;
+    background-color: red;
+} */

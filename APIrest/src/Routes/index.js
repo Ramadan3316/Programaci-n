@@ -3,6 +3,7 @@ const router = Router();             //archivo
 
 router.get("/",(req,res)=>{
     res.json({"Name":"Jorge"});
+    console.log(res);
 })
 
 module.exports = router;
