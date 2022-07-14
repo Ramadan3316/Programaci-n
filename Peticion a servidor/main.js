@@ -45,7 +45,6 @@ send.addEventListener("click",()=>{
         console.log(weather[0].description)
         cont.style.display="block";    
     })
-    
 });
 
 
