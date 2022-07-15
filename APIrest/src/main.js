@@ -19,7 +19,7 @@ app.set("port", process.env.PORT || 3000); // Si el servidor me da un puerto uso
 
 //Middleware(Ejecuta antes del programa)
 // app.use(morgan("dev")); // Para ver las peticiones en consola
-// app.use(express.urlencoded({extended: false})) // Para recibir datos sencillos de formularios
+app.use(express.urlencoded({extended: false})) //Para recibir datos sencillos de formularios
 app.use(express.json()); // Para poder soportar el formato JSON
 
 //Rutas
