@@ -1,21 +1,20 @@
-#b n 
-from cryptography.fernet import Fernet
-
+#b n
+# from cryptography.fernet import Fernet 
+from functions import *
 # key = Fernet.generate_key();
 
 # Ffernet = Fernet(key)
 # print("la key es:",key);
 # crypted = Ffernet.encrypt(str1.encode())
-#
-class User():
-    def __init__(self,usern):
-        self.usern = usern;
-    def addPass(self):
-        self.nPass = input("name de la contraseña que quiere ingresar");
-        self.Pass = input("Ingrese la contra");
+
 
 User1 = User("Jorge");
-User1.addPass()
+User1.addPass();
+User1.readPass();
+for letras in User1.passEn:
+    print(letras);
+
+
 
 # key = readKey();
 # Ffernet = Fernet(key);
