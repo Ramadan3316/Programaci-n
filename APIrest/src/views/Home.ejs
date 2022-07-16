@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <colgroup>
+          <col class="column1">
+          <col class="columns2plus3" span="2">
+        </colgroup>
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>PRIZE</th>
+        </tr>
+            <% arrayDatos.forEach(function(dato){ %>
+            <tr>
+                <td><%= dato._id%></td>
+                <td><%= dato.name%></td>
+                <td><%= dato.prize%></td>
+            </tr> 
+            <% }) %>
+        
+      </table>
+</body>
+</html>
