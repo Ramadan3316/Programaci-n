@@ -3,6 +3,7 @@ from cryptography.fernet import Fernet
 class User():
     def __init__(self,usern):
         self.usern = usern;
+    
     def addPass(self):
         datos = open("datos.txt","bw");
         keyA = open("Keys.txt","bw");
@@ -12,10 +13,11 @@ class User():
         self.encryptP = fernet.encrypt(self.nPass.encode())
         datos.write(self.encryptP);
         keyA.write(self.key)
+    
     def readPass(self):
         datos = open("datos.txt","br");
         fernet = Fernet(self.key)
-        passEn = datos.read();
-        passDe = fernet.decrypt(passEn).decode();
-        print("La pass encrypt:",passEn);
+        self.passEn = datos.read();
+        passDe = fernet.decrypt(self.passEn).decode();
+        print("La pass encrypt:",self.passEn);
         print("la pass decrypt:",passDe);
