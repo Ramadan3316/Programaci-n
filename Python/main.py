@@ -1,28 +1,18 @@
 #b n
-# from cryptography.fernet import Fernet 
-from functions import *
-# key = Fernet.generate_key();
+import pygame, sys;
 
-# Ffernet = Fernet(key)
-# print("la key es:",key);
-# crypted = Ffernet.encrypt(str1.encode())
+surf = pygame.display.set_mode((800,600),32,0);
+screen = pygame.display;
 
+while 1:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit();
+        if event.type == pygame.KEYDOW:
+            if event.key == pygame.K_W:
+                rect1 = pygame.rect.Rect((200,200), (50,100))
+                pygame.draw.rect(surf,(255,255,255),rect1);
+                pygame.display.update();
 
-User1 = User("Jorge");
-User1.addPass();
-User1.readPass();
-for letras in User1.passEn:
-    print(letras);
-
-
-
-# key = readKey();
-# Ffernet = Fernet(key);
-
-# print("la key es: ",key);
-# decryptR = Ffernet.decrypt(contentArchivo()).decode();
-
-# print("String default: ", str1)
-# #print("Encriptado ", crypted)
-# #print("Lo que leo del archivo:",read);
-# print("Lo que leo desencriptado: ", decryptR)
+    
+    
