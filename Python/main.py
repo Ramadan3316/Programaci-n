@@ -101,24 +101,26 @@ while runGame:
     for i in range(len(platArr)):
         platArr[i].draw();
         # platArr[i].colision(jumpPlat.rect);
-    
-    if player.y  < yScreen and platArr[index].colision(jumpPlat.rect) == False:
-        player.gravity(0.8);
-        jumpPlat.gravity(0.8);
+    for plat in platArr: 
+        # print(plat.posY);
+        if player.y  < yScreen and plat.colision(jumpPlat.rect) == False:
+            player.gravity(0.8);
+            jumpPlat.gravity(0.8);
+            print("hay gravedad")
 
-    if keys['w']:
-        if platArr[index].colision(jumpPlat.rect) == False:
-            if player.y > 400:
-                player.y -= 1.5;
-                jumpPlat.y -= 1.5;
+        if keys['w']:
+            if plat.colision(jumpPlat.rect) == False:
+                if player.y > 300:
+                    player.y -= 1.5;
+                    jumpPlat.y -= 1.5;
+                else:
+                    keys['w'] = False;
             else:
-                keys['w'] = False;
-        else:
-            if player.y > 600:
-                player.y -= 1.5;
-                jumpPlat.y -= 1.5;
-            else:
-                keys['w'] = False;
+                if player.y > 600:
+                    player.y -= 1.5;
+                    jumpPlat.y -= 1.5;
+                else:
+                    keys['w'] = False;
     
     if keys['a']:
         for i in range(len(platArr)):
