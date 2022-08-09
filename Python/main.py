@@ -13,13 +13,27 @@ keys = {
     's':False
 }
 
+red = (255,0,0);
+green = (0,255,0);
+blue = (0,0,255);
+
 class Player:
     x = xScreen/2;
-    
+    y = yScreen/2;
+
     def __init__(self,width,height,posY):
         self.width = width;
         self.heigth = height;
-        self.y = posY;
+        self.y = posY
+
+    def draw(self,color):
+        self.rect = pygame.rect.Rect((self.x, self.y - self.heigth), (self.width,self.heigth))
+        # rectCol = pygame.rect.Rect((player.x,player.y-player.heigth/20), (player.width,player.heigth/20))
+        pygame.draw.rect(surf,color,self.rect);
+        
+        
+        # pygame.draw.rect(surf,(255,255,255),rect1);
+        # playerCol = pygame.draw.rect(surf,(0,255,0),rectCol);
 
     def gravity(self,value):
         self.y += value;
@@ -38,23 +52,24 @@ class platforms:
 
     def draw(self):
         rectP = pygame.rect.Rect((self.posX,self.posY), (self.width,self.height))
-        rectC = pygame.rect.Rect((rectP.x,rectP.y),(rectP.width,1))
+        self.rectC = pygame.rect.Rect((rectP.x,rectP.y),(rectP.width,1))
         pygame.draw.rect(surf,(255,255,255),rectP);
-        self.platformColision = pygame.draw.rect(surf,(0,255,0),rectC);
+        self.platformColision = pygame.draw.rect(surf,(0,255,0),self.rectC);
     
     def colision(self,playerColider):
         if self.platformColision.colliderect(playerColider) == True:
-            player1.gravity(0);
+            player.gravity(0);
             return True;
         else:
             return False;
             
-player1 = Player(25,50,600);  
+player = Player(25,50,600);
+jumpPlat = Player(25,1,600);
 plat1 = platforms(100,50,400,425);
 plat2 = platforms(50,50,800,425);
-
-jump = False
+platArr = [plat1,plat2];
 runGame = True;
+index = 1;
 
 while runGame:
     for event in pygame.event.get():
@@ -63,7 +78,7 @@ while runGame:
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
                 sys.exit();
-            if event.key == pygame.K_w and player1.y > yScreen - 10:
+            if event.key == pygame.K_w and player.y > yScreen - 10:
                 keys['w'] = True;
             if event.key == pygame.K_a:
                 keys['a'] = True;
@@ -79,46 +94,46 @@ while runGame:
                 keys['s'] = False;
             if event.key == pygame.K_d:
                 keys['d'] = False;
-
-    rect1 = pygame.rect.Rect((player1.x,player1.y - player1.heigth), (player1.width,player1.heigth))
-    rectT = pygame.rect.Rect((200,200), (player1.width,player1.heigth))
-    pygame.draw.rect(surf, (0,0,0), (0,0,xScreen,yScreen))
-    playerCol = pygame.draw.rect(surf,(255,255,255),rect1);
-    plat1.draw();
-    plat2.draw();
-    plat1.colision(playerCol);
     
-    if player1.y  < yScreen and plat1.colision(playerCol) == False:
-        player1.gravity(0.8);
-        print("hay gravedad");
+    pygame.draw.rect(surf, (0,0,0), (0,0,xScreen,yScreen))
+    player.draw(red)
+    jumpPlat.draw(green);
+    for i in range(len(platArr)):
+        platArr[i].draw();
+        # platArr[i].colision(jumpPlat.rect);
+    
+    if player.y  < yScreen and platArr[index].colision(jumpPlat.rect) == False:
+        player.gravity(0.8);
+        jumpPlat.gravity(0.8);
 
     if keys['w']:
-        if plat1.colision(playerCol) == False:
-            if player1.y > 400:
-                player1.y -= 1.8;
-                print("aca")
+        if platArr[index].colision(jumpPlat.rect) == False:
+            if player.y > 400:
+                player.y -= 1.5;
+                jumpPlat.y -= 1.5;
             else:
                 keys['w'] = False;
         else:
-            if player1.y > 600:
-                player1.y -= 1.8;
-                print("aca")
+            if player.y > 600:
+                player.y -= 1.5;
+                jumpPlat.y -= 1.5;
             else:
                 keys['w'] = False;
     
     if keys['a']:
-        plat1.move(1,0);
-        plat2.move(1,0)
+        for i in range(len(platArr)):
+            platArr[i].move(1,0);
         
     if keys['s']:
-        if player1.y  <= yScreen:
-            player1.y += 0.2;
+        if player.y  <= yScreen:
+            player.y += 0.2;
+            jumpPlat.y += 0.2;
 
     if keys['d']:
-        plat1.move(-1,0)
-        plat2.move(-1,0)
+        for i in range(len(platArr)):
+            platArr[i].move(-1,0);
     
     screen.update();    
-    
+    index;
     
     
