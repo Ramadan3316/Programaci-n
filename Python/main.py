@@ -69,7 +69,10 @@ plat1 = platforms(100,50,400,425);
 plat2 = platforms(50,50,800,425);
 platArr = [plat1,plat2];
 runGame = True;
-index = 1;
+
+# def allPlat ():
+#     for i in range(len(platArr)):
+
 
 while runGame:
     for event in pygame.event.get():
@@ -94,6 +97,7 @@ while runGame:
                 keys['s'] = False;
             if event.key == pygame.K_d:
                 keys['d'] = False;
+        
     
     pygame.draw.rect(surf, (0,0,0), (0,0,xScreen,yScreen))
     player.draw(red)
@@ -102,7 +106,7 @@ while runGame:
         platArr[i].draw();
         # platArr[i].colision(jumpPlat.rect);
     for plat in platArr: 
-        # print(plat.posY);
+        print(plat.posY);
         if player.y  < yScreen and plat.colision(jumpPlat.rect) == False:
             player.gravity(0.8);
             jumpPlat.gravity(0.8);
@@ -116,7 +120,7 @@ while runGame:
                 else:
                     keys['w'] = False;
             else:
-                if player.y > 600:
+                if player.y > 500:
                     player.y -= 1.5;
                     jumpPlat.y -= 1.5;
                 else:
@@ -136,6 +140,6 @@ while runGame:
             platArr[i].move(-1,0);
     
     screen.update();    
-    index;
+    
     
     
