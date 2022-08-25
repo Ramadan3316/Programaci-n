@@ -1,31 +1,32 @@
 from os import system;
+#Defino el diccionario
+data = {}
 
-def emailVerify(email):
-    if(email.__contains__("@") == False and email.__contains__(".com") == False):
+def emailVerify():
+    if(data["email"].__contains__("@") == False or data["email"].__contains__(".com") == False):
         print("Ingrese un email valido")
-        getData();
         return False
+    return True
 
-def intVerify(weight,height):
+def intVerify():
     try:
-        weight = float(weight)
-        print("aksjdka");
+        weight = float(data["weight"])
     except:
         _ = system("cls")
         print("Ingrese un peso valido \n")
-        getData()
         return False
     try:
-        height = float(height)
+        height = float(data["height"])
     except:
         _ = system("cls")
         print("Ingrese una altura valida");
-        getData(True, False)
         return False
+    return True, weight, height
 
-def imcCal(weight,height):
+def imcCal(height,weight):
     print("entre");
-    indexIMC = weight/(height**2)
+    
+    indexIMC = weight/height**2
     if indexIMC < 18.5: 
         return print("Low peso")
     if indexIMC > 18.5 and indexIMC < 24.9:
@@ -35,25 +36,26 @@ def imcCal(weight,height):
     if  indexIMC > 30:
         return print("super high peso");    
 
-def getData(emailVer = True, messiVer = True):
-    weight = input("Ingrese su peso: ")
-    height = input("Ingrese su altura: ")
-    email = input("Ingrese su email: ")
-    data = {
-        "weight" : weight,
-        "email" : email,
-        "height" : height
-    }
-    emailVerify(data["email"])
-    intVerify(data["weight"],data["height"]);
-    
-    if emailVerify(data["email"]) == True and intVerify(data["weight"],data["height"]) == True:
-        print("ajksdja")
-        imcCal(data["height"],data["weight"])
+
+def getData():
+    emailVer, intVer = False, False;
+    print(emailVer);
+    while emailVer == False or intVer == False:
+        data["weigth"] = input("Ingrese su peso (en kg): ")
+        data["heigth"]  = input("Ingrese su altura (en m): ")
+        data["email"]  = input("Ingrese su email: ")
+        # data = {
+        #     "weight" : weight,
+        #     "email" : email,
+        #     "height" : height
+        # }
+        print(data["email"])
         
-
-
-
+        emailVer = emailVerify()
+        intVer, data["weight"], data["height"] = intVerify();
+    
+    print(imcCal(data["height"],data["weight"]))
+        
 
 getData();
 

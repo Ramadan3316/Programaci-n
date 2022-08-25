@@ -1,1 +1,2 @@
-pygame.draw.rect(surf,(255,255,255),)
+
+        print(type(data["weight"]))
