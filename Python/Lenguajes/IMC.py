@@ -1,10 +1,6 @@
 from os import system;
 import smtplib
 
-#Configuro el protocolo de mail
-
-
-
 def emailVerify(email):
     while email.__contains__("@") == False or email.__contains__(".") == False:#verifico que el email contega @ y .algo
         _ = system("cls")
