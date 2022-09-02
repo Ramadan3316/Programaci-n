@@ -1,4 +1,9 @@
 from os import system;
+import smtplib
+
+#Configuro el protocolo de mail
+
+
 
 def emailVerify(email):
     while email.__contains__("@") == False or email.__contains__(".") == False:#verifico que el email contega @ y .algo
@@ -33,15 +38,21 @@ def intVerify(weight,height):
 def imcCal(height,weight):
     #Calculo el IMC y muestro el mensaje correspondiente
     indexIMC = weight/height**2
+    indexIMC = round(indexIMC,1)
+    _ = system("cls")
     print("Calculando el IMC...")
     if indexIMC < 18.5: 
-        return print("Low peso")
+        print("USTED ESTA DEBAJO DE SU PESO")
+        indexIMC
     elif indexIMC > 18.5 and indexIMC < 24.9:
-        return print("normal")
+        print("USTED ESTA EN SU PESO NORMAL")
+        return indexIMC
     elif indexIMC > 25 and indexIMC < 29.9:
-        return print("high peso")
+        print("USTED TIENE SOBREPESO")
+        return indexIMC
     else:
-        return print("super high peso")    
+        print("USTED TIENE OBESIDAD")
+        return indexIMC    
 
 def getData():
     data = {}
@@ -54,16 +65,55 @@ def getData():
     data["weight"], data["height"] = intVerify(data["weight"],data["height"]) #Verifico que el peso y la altura sean 
                                                                               #validos y si los son los guardo
 
-    return data["height"], data["weight"] #Devuelvo el peso y la altura ya verificados
+    return data["height"], data["weight"],data["email"] #Devuelvo el peso, la altura y el email ya verificados
+
+def emailSender(email,height,weight,imc):
+    server = smtplib.SMTP(host = "smtp.gmail.com", port = 587)
+    #Paso los datos a string para mandarlos en un mensaje
+    height = str(height)
+    weight = str(weight)
+    imc = str(imc)
+
+    server.ehlo()
+    print("--- ENVIANDO MAIL CON SU INFORMACION... ---")
+    # mensaje = f""" 
+    # Su peso es {weight}"""
+    mensaje = "Subject: CALCULADORA DE IMC \n" + "Su peso es " + weight+"Kg " +" Su altura es " + height +"m "+"Su IMC es " + imc
+    # Saco los espacios dentro del email
+    email = email.strip()
+    #Inicio la conexión
+    server.starttls()
+    #logeo el email con el cual mando el main y mando el mail hacia la direccion del usuario
+    server.login(user="pythonnexample@gmail.com", password="rjvjltqrzdatisvu")
+    try:
+        server.sendmail(from_addr="pythonnexample@gmail.com", 
+        to_addrs=email, msg=mensaje)
+    except:
+        print("Ocurrio un error al mandar el mail")
+        server.quit()
+        return False
+    print("Se ha enviado el email con sus datos")
+    return True
+
+    
 
 def init():
     print("-------bienvenido a la calculadora de IMC--------")
     print("Porfavor ingrese el peso en kg y la altura en m")
     
-    height,weight = getData() #Guardo los datos necesarios ya verificados
+    height,weight,email = getData() #Guardo los datos necesarios ya verificados
+    print(height)
+    imc = imcCal(height,weight) #Calculo el IMC pasandole la altura y el peso ya verificados
+    
+    sended = emailSender(email,height,weight,imc)
 
-    imcCal(height,weight) #Calculo el IMC pasandole la altura y el peso ya verificados
-        
+    while sended == False:
+        sended = emailSender(email,height,weight,imc)
+        email = input("Por favor ingrese su mail nuevamente")
+
+    print("------- Muchas gracias por usar la calculadora de IMC -------")
+    
+
 init() #Inicio el programa
 
 
