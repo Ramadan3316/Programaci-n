@@ -1,3 +1,10 @@
+# from sys import path
+# path.append("..\\extra")
+from extra.good.alpha import FunA
+
+def Alpha():
+    return FunA()
+
 def strVerify(verify,contain):
     if verify.__contains__(contain):
         return True
@@ -11,3 +18,4 @@ def floatVer(data):
         data = 0;
         return data 
     return data
+

@@ -1,5 +1,8 @@
-def f(x):
-    if x == 0:
-        return 0
-    return x + f(x-1)
-print(f(3))
+from Module.lib import Alpha
+
+from extra.good.best.sigma import FunS
+
+print(Alpha())
+print(FunS())
+arr =[[1,2,3],[1,2,3]]
+print(len(arr))
