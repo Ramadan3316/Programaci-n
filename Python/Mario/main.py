@@ -63,12 +63,12 @@ class platforms:
         else:
             return False;
             
-player = Player(25,50,600);
-jumpPlat = Player(25,1,600);
-plat1 = platforms(100,50,400,425);
-plat2 = platforms(50,50,800,425);
-platArr = [plat1,plat2];
-runGame = True;
+player = Player(25,50,600)
+jumpPlat = Player(25,1,600)
+plat1 = platforms(100,50,400,425)
+plat2 = platforms(50,50,800,425)
+platArr = [plat1,plat2]
+runGame = True
 
 # def allPlat ():
 #     for i in range(len(platArr)):
@@ -77,52 +77,52 @@ runGame = True;
 while runGame:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            sys.exit();
+            sys.exit()
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                sys.exit();
+                sys.exit()
             if event.key == pygame.K_w and player.y > yScreen - 10:
-                keys['w'] = True;
+                keys['w'] = True
             if event.key == pygame.K_a:
-                keys['a'] = True;
+                keys['a'] = True
             if event.key == pygame.K_s:
-                keys['s'] = True;
+                keys['s'] = True
             if event.key == pygame.K_d:
-                keys['d'] = True;
+                keys['d'] = True
                 
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_a:
-                keys['a'] = False;
+                keys['a'] = False
             if event.key == pygame.K_s:
-                keys['s'] = False;
+                keys['s'] = False
             if event.key == pygame.K_d:
-                keys['d'] = False;
+                keys['d'] = False
         
     
     pygame.draw.rect(surf, (0,0,0), (0,0,xScreen,yScreen))
     player.draw(red)
     jumpPlat.draw(green);
     for i in range(len(platArr)):
-        platArr[i].draw();
+        platArr[i].draw()
         # platArr[i].colision(jumpPlat.rect);
     for plat in platArr: 
-        print(plat.posY);
+        print(plat.posY)
         if player.y  < yScreen and plat.colision(jumpPlat.rect) == False:
-            player.gravity(0.8);
-            jumpPlat.gravity(0.8);
+            player.gravity(0.8)
+            jumpPlat.gravity(0.8)
             print("hay gravedad")
 
         if keys['w']:
             if plat.colision(jumpPlat.rect) == False:
                 if player.y > 300:
-                    player.y -= 1.5;
-                    jumpPlat.y -= 1.5;
+                    player.y -= 1.5
+                    jumpPlat.y -= 1.5
                 else:
-                    keys['w'] = False;
+                    keys['w'] = False
             else:
                 if player.y > 500:
-                    player.y -= 1.5;
-                    jumpPlat.y -= 1.5;
+                    player.y -= 1.5
+                    jumpPlat.y -= 1.5
                 else:
                     keys['w'] = False;
     

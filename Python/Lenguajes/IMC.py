@@ -91,8 +91,6 @@ def emailSender(email,height,weight,imc):
     print("Se ha enviado el email con sus datos")
     return True
 
-    
-
 def init():
     print("-------bienvenido a la calculadora de IMC--------")
     print("Porfavor ingrese el peso en kg y la altura en m")
