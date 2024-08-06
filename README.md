@@ -1,2 +1,2 @@
 # Programaci-n
-Super mega nashe project anananananasheee
+A portfolio of diferents projects made during the 2022
